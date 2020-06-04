@@ -4,19 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GUI {
-    private JButton temperaturdatenButton;
-    private JButton sensorenHerstellerdatenButton;
-    private JButton sensorenTemperaturdatenButton;
-    private JButton temperaturSensorHerstellerdatenButton;
-    private JButton letzte10TemperaturdatenButton;
-    private JButton letzte10TemperaturwerteDatumButton;
-    private JButton höchsteTemperaturJeSensorButton;
-    private JButton durchschnittJeSensorButton;
     private JTable resultTable;
     private JPanel contentPanel;
+    private JComboBox sqlSelect;
 
-    public static void callGui()
-    {
+    public static void callGui() {
         JFrame frame = new JFrame("GUI");
         frame.setContentPane(new GUI().contentPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,33 +32,23 @@ public class GUI {
      */
     private void $$$setupUI$$$() {
         contentPanel = new JPanel();
-        contentPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 8, new Insets(0, 0, 0, 0), -1, -1));
-        temperaturdatenButton = new JButton();
-        temperaturdatenButton.setText("Temperaturdaten");
-        contentPanel.add(temperaturdatenButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        sensorenHerstellerdatenButton = new JButton();
-        sensorenHerstellerdatenButton.setText("SensorenHerstellerdaten");
-        contentPanel.add(sensorenHerstellerdatenButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        sensorenTemperaturdatenButton = new JButton();
-        sensorenTemperaturdatenButton.setText("Sensoren+Temperaturdaten");
-        contentPanel.add(sensorenTemperaturdatenButton, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        temperaturSensorHerstellerdatenButton = new JButton();
-        temperaturSensorHerstellerdatenButton.setText("Temperatur+Sensor+Herstellerdaten");
-        contentPanel.add(temperaturSensorHerstellerdatenButton, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        letzte10TemperaturdatenButton = new JButton();
-        letzte10TemperaturdatenButton.setText("Letzte 10 Temperaturdaten");
-        contentPanel.add(letzte10TemperaturdatenButton, new com.intellij.uiDesigner.core.GridConstraints(0, 4, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        letzte10TemperaturwerteDatumButton = new JButton();
-        letzte10TemperaturwerteDatumButton.setText("Letzte 10 Temperaturwerte Datum Absteigend");
-        contentPanel.add(letzte10TemperaturwerteDatumButton, new com.intellij.uiDesigner.core.GridConstraints(0, 5, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        höchsteTemperaturJeSensorButton = new JButton();
-        höchsteTemperaturJeSensorButton.setText("Höchste Temperatur je Sensor");
-        contentPanel.add(höchsteTemperaturJeSensorButton, new com.intellij.uiDesigner.core.GridConstraints(0, 6, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        durchschnittJeSensorButton = new JButton();
-        durchschnittJeSensorButton.setText("Durchschnitt je Sensor");
-        contentPanel.add(durchschnittJeSensorButton, new com.intellij.uiDesigner.core.GridConstraints(0, 7, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        contentPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         resultTable = new JTable();
-        contentPanel.add(resultTable, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 8, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        resultTable.setFillsViewportHeight(false);
+        contentPanel.add(resultTable, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        sqlSelect = new JComboBox();
+        final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
+        defaultComboBoxModel1.addElement("Ausgabe auswählen...");
+        defaultComboBoxModel1.addElement("Temperaturdaten");
+        defaultComboBoxModel1.addElement("Sensoren- & Herstellerdaten");
+        defaultComboBoxModel1.addElement("Sensoren- & Temperaturdaten");
+        defaultComboBoxModel1.addElement("Temperatur- & Sensor- & Herstellerdaten");
+        defaultComboBoxModel1.addElement("Letzten 10 Temperaturdaten");
+        defaultComboBoxModel1.addElement("Letzten 10 Temperaturdaten absteigend nach Datum");
+        defaultComboBoxModel1.addElement("Höchste Temperatur je Sensor");
+        defaultComboBoxModel1.addElement("Durchschnitt je Sensor");
+        sqlSelect.setModel(defaultComboBoxModel1);
+        contentPanel.add(sqlSelect, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(917, 30), null, 0, false));
     }
 
     /**
@@ -75,4 +57,5 @@ public class GUI {
     public JComponent $$$getRootComponent$$$() {
         return contentPanel;
     }
+
 }
